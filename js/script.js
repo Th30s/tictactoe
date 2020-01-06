@@ -1,7 +1,9 @@
+// let playersTurn = "X"
+let XsTurn = true;
+let turnsTaken = 0;
+let gameEnd = false
 
-
-
-
+function performLogic(input1,input2)
 
 
 
