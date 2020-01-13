@@ -1,14 +1,37 @@
-// let playersTurn = "X"
-let XsTurn = true;
+let playersTurn = "X"
+// let XsTurn = true;
 let turnsTaken = 0;
-let gameEnd = false
+let gameEnd = false;
+let positionsOfX=[];
+let positionsOfO=[];
+let winningPositions = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]];
 
-function performLogic(input1,input2)
+function changePlayer(){
+    if (playersTurn === "X"){
+        playersTurn = "O";
+        turnsTaken = turnsTaken + 1
+    } else if (playersTurn === "O"){
+        playersTurn = "X";
+        turnsTaken = turnsTaken + 1
+    }
+}
 
-
+function performLogic(buttonId,tileId){
+    if(gameEnd===false){
+    $(tileId).html(playersTurn);
+    changePlayer();
+    }
+    console.log(turnsTaken);
+    if (turnsTaken === 9){
+        gameEnd = true;
+        $("#gameResults").html("<h1>Its a Draw!</h3>");
+    }
+    console.log(gameEnd);
+}
 
 $("#button1").click(function() {
     performLogic("#button1","#tile1");
+    
 });
 
 $("#button2").click(function() {
